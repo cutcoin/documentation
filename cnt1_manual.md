@@ -88,11 +88,13 @@ It has 3 required parameters. 'token_name' is the name of the token that needs t
 
 The example of 'transfer_token' output:
 
+```
 transfer_token ALPHA TCU1qyPcrNfS1mnbYB6C5FfTc4yJqLN4kL1t3P3Bkr7SMBRcBzdYKkDUFDSQTfMzjTXEBzqu29bEZR91PKbWxmzY3ah3X5SDJs 5
 Wallet password: 
 No payment id is included with this transaction. Is this okay?  (Y/Yes/N/No): y
 Transaction successfully submitted, transaction <a18a55f432cb21d1cfd10ce13967f9c40e9102952c205130a6de85e245aad361>
 You can check its status by using the `show_transfers` command.
+```
 
 ### Explore all CNT1 tokens.
 
