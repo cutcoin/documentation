@@ -19,7 +19,9 @@ Tokens have unique names and the corresponding unique ids. Cutcoin id is 0 (zero
 
 The token creation command is
 
+```
 create_token <token_name> <token_supply>
+```
 
 token_name, as described before, is the user defined name of the token. It has integer representation called 'token id'. Token id and token names have one-to-one relation: 'token name' -> 'token id', 'token id' -> 'token name'. This means, consequently, that token id is also unique.
 
@@ -33,7 +35,9 @@ Tokens have same default spendable age (10 blocks) as Cutcoin, so they can be tr
 ### Information about token balance in cli wallet.
 Command that lists tokens with their balance is 
 
+```
 token_balance [token_name] [detail]
+```
 
 'token_balance' without arguments lists all tokens form the current balance, you can see an example below
 
@@ -49,13 +53,16 @@ Tag: (No tag assigned)
 
 If the 'token_name' is specified, the output contains an information for a single token:
 
+```
 Currently selected account: [0] Primary account
 Tag: (No tag assigned)
            Name               Balance      Unlocked balance              Token ID
           ALPHA         20.0000000000         20.0000000000   4705223981953712128
-          
+```
+
 'detail' is the optional flag that enables extended output with splits by subaddresses
 
+```
 Currently selected account: [0] Primary account
 Tag: (No tag assigned)
            Name               Balance      Unlocked balance              Token ID
@@ -64,6 +71,7 @@ Tag: (No tag assigned)
 ALPHA balance per address:
         Address               Balance      Unlocked balance                 Label
        0 TCU1qy         20.0000000000         20.0000000000       Primary account
+```
 
 The major new features are beyond just three commands:
 
@@ -72,7 +80,9 @@ The major new features are beyond just three commands:
 
 For token transfers 'transfer_token' command should be used:
 
+```
 transfer_token <token_name> <address> <amount>
+```
 
 It has 3 required parameters. 'token_name' is the name of the token that needs to be transferred, 'address' is the wallet address of the receiver and 'amount' is amount of tokens to transfer. This command cannot be used to transfer cutcoins. Multiple tokens / multiple destinations also cannot be specified (will be implemented in the future). This transaction, as any other cutcoin transaction, has its fee that depends on its size. This fee can by payed only in cutcoins, and it means one should have enaugh cutcoin balance (and cerainly token balance too) to transfer tokens.
 
@@ -88,10 +98,13 @@ You can check its status by using the `show_transfers` command.
 
 Useres can list all tokens ever created in the blockchain using the command 'get_tokens':
 
+```
 get_tokens [token_name_prefix]
+```
 
 This command has an optional mask 'token_name_prefix' that filters output. The example of this command usage:
 
+```
 get_tokens
 Name            Supply   Unit
    ALPHA        100      10000000000
@@ -100,12 +113,13 @@ Name            Supply   Unit
    DELTA        400      10000000000
       G7        7        10000000000
    GAMMA        300      10000000000
+```
 
 ### List payments including tokens.
 
 Cutcoin has the command that lists transfers in the wallet, it is 'show_transfers'. It supports tokens so that each transfer has a specific token name in its outline that clarify what exactly was transferred. The example output is below:
 
-
+```
 show_transfers
   368114     in       2020-07-09 09:48:30 CUTCOIN        10.0000000000 578da8fa5af7cb41e4366c9b571504f5114a7238c889833121104b9f089554b8 0000000000000000 0 - 
   368115     in       2020-07-09 09:50:07 CUTCOIN       100.0000000000 187f11c56e75545ca82cf01fcc14238e6fa985aa1c53dae77259e21588789ddd 0000000000000000 0 - 
@@ -121,3 +135,4 @@ show_transfers
   368131    out       2020-07-09 10:22:00 CUTCOIN       100.0000000000 0515e38b86e07003f048f985b7ba0b51553066a9087c67cd7f71f422147352d2 0000000000000000   0.0709450100  0 - 
   368132     in       2020-07-09 10:23:49 Z1     10000.0000000000 5a54bb956c7ee45c7b01815cb0a927c631c0cfb52ded095419fcfd015bfb285e 0000000000000000 0 - 
   368132    out       2020-07-09 10:23:49 CUTCOIN       100.0000000000 5a54bb956c7ee45c7b01815cb0a927c631c0cfb52ded095419fcfd015bfb285e 0000000000000000   0.0709635300  0 - 
+```
