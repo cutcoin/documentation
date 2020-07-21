@@ -3,19 +3,19 @@
 
 ## Introduction
 
-Cutcoin Token is the named entity representing a specific value. Once created, token can be owned or sent to another owner. No token duplicates (tokens with the same names) are allowed.
+Cutcoin Token is the named entity representing a specific value. Once created, tokens can be owned or sent to another owner. No duplicate token names are allowed.
 
-CryptoNote Tokens implemented in Cutcoin is the extention of CryptoNote protocol that allows creating and manipulating named tokens. Tokens are very similar to the coin itself, and that's one of their advantages: well known and time proved protocol that guarantees reliable privacy and security. The only place where the information about tokens is stored is the Cutcoin blockchain, and this means no additional centralization were brought.
+CryptoNote Tokens implemented in Cutcoin is the extension of CryptoNote protocol that allows creating and manipulating named tokens. Tokens are very similar to the coin itself, and that's one of their advantages: a well known and time proved protocol that guarantees reliable privacy and security. The only place where the information about tokens is stored is the Cutcoin blockchain, and this means no additional centralization is added.
 
-Tokens have unique names and the corresponding unique ids. Cutcoin id is 0 (zero). Each transaction output in the system has its id, and it's not encrypted, so users can see it. When a transaction with tokens has been sent, somebody can note that the tokens with specific id are circulating, but the sender and receiver are not known due to one time addreses protocol. Transaction amounts are also hidden thanks to Ring Confidential Transaction (RCT), so overall privacy is not worse than Cutcoin's one.
+Tokens have unique names and corresponding unique IDs. Cutcoin ID is 0 (zero). Each transaction output in the system has its ID, and it's not encrypted, so users can see it. When a transaction with tokens has been sent, somebody can note that the tokens with specific ID are circulating, but the sender and receiver are not known due to one time addreses protocol. Transaction amounts are also hidden thanks to Ring Confidential Transaction (RCT), so overall privacy is not worse than that of Cutcoin.
 
 ## User operations
 
-### To create a new token comman line (cli) wallet can be used. The requirements for this operation are:
+### To create a new token command line (CLI) wallet can be used. The requirements for this operation are:
 
--token name must be unique, i.e. no other token with the same name has been created and persisted in Cutcoin blockchain. Token name can consist of English capitalized letters and digits, length is 1 - 8 symbols. CUT and CUTCOIN names are not allowed for security reasons.
+-token name must be unique, i.e. no other token with the same name has been created and persists in the Cutcoin blockchain. Token name can consist of English capitalized letters, and digits. Token name length is 1 - 8 characters. CUT and CUTCOIN names are not allowed for security reasons.
 
--token creation fee (TCF) + transaction fee must be payed in cutcoins, so the user must have enaugh balance. Current TCF is 100CUT, it's a flat rate that doesn't depent on name, token supply or anything else. Transaction fee is estimated dinamically during the process of transaction creation, but in the most of the cases it is less then 1CUT. So, one should have 101CUT to create a token. TCF goes to so called 'coinburn address' which is public, but all funds it receives become unspendable for any user.
+-token creation fee (TCF) + transaction fee must be payed in cutcoins, so the user must have enough balance. Current TCF is 100CUT, it's a flat rate that doesn't depend on name, token supply or anything else. Transaction fee is estimated dynamically during the process of transaction creation, but in most cases it is less then 1CUT. So, one should have 101CUT to create a token. TCF goes to so called 'coinburn address' which is public, but all funds it receives become unspendable for any user.
 
 The token creation command is
 
@@ -27,7 +27,7 @@ token_name, as described before, is the user defined name of the token. It has i
 
 token supply is the total number of tokens with the 'token_name'. It can be value in the range 1 .. 200 000 000, the latter is the total Cutcoin supply.
 
-The transaction that creates new token is called 'token genesis transaction' (tgtx). It has a specific structire and acceptance rules as, figurally, tokens being created out of thin air.
+The transaction that creates new token is called 'token genesis transaction' (tgtx). It has a specific structire and acceptance rules since, figurally, tokens are being created out of thin air.
 
 Tokens have same default spendable age (10 blocks) as Cutcoin, so they can be transferred in approximately 20 minutes after their creation.
 
@@ -42,6 +42,7 @@ token_balance [token_name] [detail]
 'token_balance' without arguments lists all tokens form the current balance, you can see an example below
 
 ```
+token_balance
 Currently selected account: [0] Primary account
 Tag: (No tag assigned)
            Name               Balance      Unlocked balance              Token ID
@@ -54,6 +55,7 @@ Tag: (No tag assigned)
 If the 'token_name' is specified, the output contains an information for a single token:
 
 ```
+token_balance ALPHA
 Currently selected account: [0] Primary account
 Tag: (No tag assigned)
            Name               Balance      Unlocked balance              Token ID
@@ -63,6 +65,7 @@ Tag: (No tag assigned)
 'detail' is the optional flag that enables extended output with splits by subaddresses
 
 ```
+token_balance detail
 Currently selected account: [0] Primary account
 Tag: (No tag assigned)
            Name               Balance      Unlocked balance              Token ID
@@ -98,13 +101,12 @@ You can check its status by using the `show_transfers` command.
 
 ### Explore all CNT1 tokens.
 
-Useres can list all tokens ever created in the blockchain using the command 'get_tokens':
+Users can list all tokens ever created in the blockchain using the command 'get_tokens':
 
 ```
 get_tokens [token_name_prefix]
 ```
-
-This command has an optional mask 'token_name_prefix' that filters output. The example of this command usage:
+The output looks like this:
 
 ```
 get_tokens
@@ -115,6 +117,14 @@ Name            Supply   Unit
    DELTA        400      10000000000
       G7        7        10000000000
    GAMMA        300      10000000000
+```
+
+This command has an optional mask 'token_name_prefix' that filters output. The example of this command usage:
+
+```
+get_tokens D
+Name    	Supply	Unit
+   DELTA	400	10000000000
 ```
 
 ### List payments including tokens.
