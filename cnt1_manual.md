@@ -1,7 +1,7 @@
 
-#Cutcoin 3.0.2 testnet with CryptoNote Tokens (CNT1) User Manual.
+# Cutcoin 3.0.2 testnet with CryptoNote Tokens (CNT1) User Manual.
 
-##Introduction
+## Introduction
 
 Cutcoin Token is the named entity representing a specific value. Once created, token can be owned or sent to another owner. No token duplicates (tokens with the same names) are allowed.
 
@@ -9,7 +9,7 @@ CryptoNote Tokens implemented in Cutcoin is the extention of CryptoNote protocol
 
 Tokens have unique names and the corresponding unique ids. Cutcoin id is 0 (zero). Each transaction output in the system has its id, and it's not encrypted, so users can see it. When a transaction with tokens has been sent, somebody can note that the tokens with specific id are circulating, but the sender and receiver are not known due to one time addreses protocol. Transaction amounts are also hidden thanks to Ring Confidential Transaction (RCT), so overall privacy is not worse than Cutcoin's one.
 
-##User operations
+## User operations
 
 ### To create a new token comman line (cli) wallet can be used. The requirements for this operation are:
 
@@ -37,6 +37,7 @@ token_balance [token_name] [detail]
 
 'token_balance' without arguments lists all tokens form the current balance, you can see an example below
 
+```
 Currently selected account: [0] Primary account
 Tag: (No tag assigned)
            Name               Balance      Unlocked balance              Token ID
@@ -44,6 +45,7 @@ Tag: (No tag assigned)
           ALPHA         20.0000000000         20.0000000000   4705223981953712128
              G3        890.0000000000        890.0000000000   5130444400505126912
           GAMMA        199.0000000000        199.0000000000   5134470044377415680
+```
 
 If the 'token_name' is specified, the output contains an information for a single token:
 
