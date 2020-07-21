@@ -42,35 +42,38 @@ token_balance [token_name] [detail]
 'token_balance' without arguments lists all tokens form the current balance, you can see an example below
 
 ```
+>token_balance
 Currently selected account: [0] Primary account
 Tag: (No tag assigned)
-           Name               Balance      Unlocked balance              Token ID
-        CUTCOIN       9091.6249630036       9091.6249630036                     0
-          ALPHA         20.0000000000         20.0000000000   4705223981953712128
-             G3        890.0000000000        890.0000000000   5130444400505126912
-          GAMMA        199.0000000000        199.0000000000   5134470044377415680
+           Name               Balance      Unlocked balance
+        CUTCOIN        449.7591874800        449.7591874800
+             Z1      10000.0000000000      10000.0000000000
+             Z2        100.0000000000        100.0000000000
+             Z3   33333333.0000000000   33333333.0000000000
 ```
 
 If the 'token_name' is specified, the output contains an information for a single token:
 
 ```
+>token_balance Z1
 Currently selected account: [0] Primary account
 Tag: (No tag assigned)
-           Name               Balance      Unlocked balance              Token ID
-          ALPHA         20.0000000000         20.0000000000   4705223981953712128
+           Name               Balance      Unlocked balance
+             Z1      10000.0000000000      10000.0000000000
 ```
 
 'detail' is the optional flag that enables extended output with splits by subaddresses
 
 ```
+token_balance Z1 detail
 Currently selected account: [0] Primary account
 Tag: (No tag assigned)
-           Name               Balance      Unlocked balance              Token ID
-          ALPHA         20.0000000000         20.0000000000   4705223981953712128
+           Name               Balance      Unlocked balance
+             Z1      10000.0000000000      10000.0000000000
 
-ALPHA balance per address:
-        Address               Balance      Unlocked balance                 Label
-       0 TCU1qy         20.0000000000         20.0000000000       Primary account
+Z1 balance per address:
+        Address               Balance      Unlocked balance Outputs                 Label
+       0 TCU1ZN      10000.0000000000      10000.0000000000      11       Primary account
 ```
 
 The major new features are beyond just three commands:
@@ -108,13 +111,16 @@ This command has an optional mask 'token_name_prefix' that filters output. The e
 
 ```
 get_tokens
-Name            Supply   Unit
-   ALPHA        100      10000000000
-    BETA        200      10000000000
- BITCOIN        21000000 10000000000
-   DELTA        400      10000000000
-      G7        7        10000000000
-   GAMMA        300      10000000000
+           Name              Token ID                Supply                  Unit
+          ALPHA   4705223981953712128                   100           10000000000
+           BETA   4775315618045886464                   200           10000000000
+           BONG   4778123796513030144                   650           10000000000
+          DELTA   4919422092723617792                   400           10000000000
+          GAMMA   5134470044377415680                   300           10000000000
+         REBONG   5928217392886251520                    15           10000000000
+             Z1   6498975737272336384                 10000           10000000000
+             Z2   6499257212249047040                   100           10000000000
+             Z3   6499538687225757696              33333333           10000000000
 ```
 
 ### List payments including tokens.
