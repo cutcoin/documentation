@@ -1,5 +1,5 @@
 
-# Cutcoin 3.0.2 testnet with CryptoNote Tokens (CNT1) User Manual.
+# Cutcoin 3 testnet with CryptoNote Tokens (CNT1) User Manual.
 
 ## Introduction
 
