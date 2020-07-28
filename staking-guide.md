@@ -59,7 +59,9 @@ To do this, create new wallet and make transaction for said amounts to that wall
 For example if you have 183.56 coins in your wallet and want to send them split into the above amounts to a new wallet with address WAL 
 (the real address will be longer so the command will be harder to read and operate with) with command:
 
+```
 transfer WAL 100 WAL 10 WAL 10 WAL 10 WAL 10 WAL 10 WAL 10 WAL 10 WAL 10 WAL 1 WAL 1 WAL 1 
+```
 
 You may need to do this several times and wait change from previous transactions if you have many inputs. 
 Remember to do that more than 24 hours before the fork, so you can compete for stake rewards from the very first PoS block.
