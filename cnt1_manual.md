@@ -145,3 +145,39 @@ show_transfers
   368132    out       2020-07-09 10:23:49  CUTCOIN       100.0000000000 5a54bb956c7ee45c7b01815cb0a927c631c0cfb52ded095419fcfd015bfb285e 0000000000000000   0.0709635300  0 - 
   368807    out       2020-07-10 09:05:06       Z3         0.0000000000 0ea2183cf89304da580f42ddf1b584a04dbff759d494c87258986577714ba555 0000000000000000   0.0279219200  0 - 
 ```
+
+### Coinburn address
+
+Coinburn address is a special public address with the unknown secret spend key. 
+
+```
+Standard address: TCU1iqbfjH8eG3dRDmWGy8UGLeDsU9EHcEhXGRrXi47NSj2PXpjaMKoce411rzhwggYGFy7MyTy27BMrQm55NNhF5yAm5mSo7F
+Secret view key:  86364a7a4e558ca836cd57aa0e54129d343b3d4347494f53596165676b6d710f
+```
+
+It is possible to generate the view wallet for this address:
+
+```
+./cutcoin-wallet-cli --testnet --generate-from-view-key ./wallet.bin
+```
+
+The example of balance output:
+
+```
+Starting refresh...
+Height 356673, txid <6bf3189a5142acc514a12f72276c90fd33e740b8fead422ff823c8d1323dc8f0>, CUTCOIN 100.0000000000, idx 0/0
+Height 356706, txid <3e9c74cde59ae025ebe4fb3ace810155b871fd4c6de139719aa4f33eceaf53df>, CUTCOIN 100.0000000000, idx 0/0
+Height 358149, txid <4e2c3754afc45ccb6581bb4fcbd308df6996d1426996c224da33fa61a10b1dfe>, CUTCOIN 100.0000000000, idx 0/0
+Height 361026, txid <814cfc6876e3b20bf8a362f44029c1a8c74e8a1762baf6c618c3baa71792ef1b>, CUTCOIN 100.0000000000, idx 0/0
+Height 368130, txid <9c9fca8b6bf3841f116461d819d6a9ba3b9a6b054f751bd12b1bd243d646cab0>, CUTCOIN 100.0000000000, idx 0/0
+Height 368131, txid <0515e38b86e07003f048f985b7ba0b51553066a9087c67cd7f71f422147352d2>, CUTCOIN 100.0000000000, idx 0/0
+Height 368132, txid <5a54bb956c7ee45c7b01815cb0a927c631c0cfb52ded095419fcfd015bfb285e>, CUTCOIN 100.0000000000, idx 0/0
+Height 371234, txid <aaff1ea4a102a5bb5a9018f81faffb2d0f63322abf921cef952d116afac82466>, CUTCOIN 100.0000000000, idx 0/0
+Height 375545, txid <cef1e05c12f0d42156f505648a3f57894bc0b90575c6600fb31dc97d855c3970>, CUTCOIN 100.0000000000, idx 0/0
+Refresh done, blocks received: 382890                           
+Untagged accounts:
+          Account               Balance      Unlocked balance                 Label
+ *       0 TCU1iq        900.0000000000        900.0000000000       Primary account
+----------------------------------------------------------------------------------
+          Total        900.0000000000        900.0000000000
+```
