@@ -1,5 +1,5 @@
 
-# Cutcoin 3.0.2 testnet with CryptoNote Tokens (CNT1) User Manual.
+# Cutcoin 3.0 testnet with CryptoNote Tokens (CNT1) User Manual.
 
 ## Introduction
 
@@ -45,11 +45,11 @@ token_balance [token_name] [detail]
 token_balance
 Currently selected account: [0] Primary account
 Tag: (No tag assigned)
-           Name               Balance      Unlocked balance              Token ID
-        CUTCOIN       9091.6249630036       9091.6249630036                     0
-          ALPHA         20.0000000000         20.0000000000   4705223981953712128
-             G3        890.0000000000        890.0000000000   5130444400505126912
-          GAMMA        199.0000000000        199.0000000000   5134470044377415680
+           Name               Balance      Unlocked balance
+        CUTCOIN        449.7591874800        449.7591874800
+             Z1      10000.0000000000      10000.0000000000
+             Z2        100.0000000000        100.0000000000
+             Z3   33333333.0000000000   33333333.0000000000
 ```
 
 If the 'token_name' is specified, the output contains an information for a single token:
@@ -58,8 +58,8 @@ If the 'token_name' is specified, the output contains an information for a singl
 token_balance ALPHA
 Currently selected account: [0] Primary account
 Tag: (No tag assigned)
-           Name               Balance      Unlocked balance              Token ID
-          ALPHA         20.0000000000         20.0000000000   4705223981953712128
+           Name               Balance      Unlocked balance
+             Z1      10000.0000000000      10000.0000000000
 ```
 
 'detail' is the optional flag that enables extended output with splits by subaddresses
@@ -68,12 +68,12 @@ Tag: (No tag assigned)
 token_balance detail
 Currently selected account: [0] Primary account
 Tag: (No tag assigned)
-           Name               Balance      Unlocked balance              Token ID
-          ALPHA         20.0000000000         20.0000000000   4705223981953712128
+           Name               Balance      Unlocked balance
+             Z1      10000.0000000000      10000.0000000000
 
-ALPHA balance per address:
-        Address               Balance      Unlocked balance                 Label
-       0 TCU1qy         20.0000000000         20.0000000000       Primary account
+Z1 balance per address:
+        Address               Balance      Unlocked balance Outputs                 Label
+       0 TCU1ZN      10000.0000000000      10000.0000000000      11       Primary account
 ```
 
 The major new features are beyond just three commands:
@@ -110,13 +110,16 @@ The output looks like this:
 
 ```
 get_tokens
-Name            Supply   Unit
-   ALPHA        100      10000000000
-    BETA        200      10000000000
- BITCOIN        21000000 10000000000
-   DELTA        400      10000000000
-      G7        7        10000000000
-   GAMMA        300      10000000000
+           Name              Token ID                Supply                  Unit
+          ALPHA   4705223981953712128                   100           10000000000
+           BETA   4775315618045886464                   200           10000000000
+           BONG   4778123796513030144                   650           10000000000
+          DELTA   4919422092723617792                   400           10000000000
+          GAMMA   5134470044377415680                   300           10000000000
+         REBONG   5928217392886251520                    15           10000000000
+             Z1   6498975737272336384                 10000           10000000000
+             Z2   6499257212249047040                   100           10000000000
+             Z3   6499538687225757696              33333333           10000000000
 ```
 
 This command has an optional mask 'token_name_prefix' that filters output. The example of this command usage:
@@ -133,18 +136,55 @@ Cutcoin has the command that lists transfers in the wallet, it is 'show_transfer
 
 ```
 show_transfers
-  368114     in       2020-07-09 09:48:30 CUTCOIN        10.0000000000 578da8fa5af7cb41e4366c9b571504f5114a7238c889833121104b9f089554b8 0000000000000000 0 - 
-  368115     in       2020-07-09 09:50:07 CUTCOIN       100.0000000000 187f11c56e75545ca82cf01fcc14238e6fa985aa1c53dae77259e21588789ddd 0000000000000000 0 - 
-  368115     in       2020-07-09 09:50:07 CUTCOIN        10.0000000000 f5cfb6c0705c5fac52764bca3df57afcf1833a8df5d7fe523632384d8e817ab0 0000000000000000 0 - 
-  368115     in       2020-07-09 09:50:07 CUTCOIN        10.0000000000 44736fffd8168a2414706112fd98fd34c6a480c88828abbf8634ea8fe530d975 0000000000000000 0 - 
-  368115     in       2020-07-09 09:50:07 CUTCOIN        10.0000000000 0222e6079f42fb2e2ee447950560e090b9cc141157adfdb8f6242aff1c40b73b 0000000000000000 0 - 
-  368115     in       2020-07-09 09:50:07 CUTCOIN       100.0000000000 d469868314a53bf678bffa282cb49b06b3b7a14caf2c9ef8bfd116e2b0f6455e 0000000000000000 0 - 
-  368115     in       2020-07-09 09:50:07 CUTCOIN        10.0000000000 023f17b872aa33322824e647424fdccc3b5cfe4a7c05c1b805449930aa68571c 0000000000000000 0 - 
-  368116     in       2020-07-09 09:52:06 CUTCOIN       500.0000000000 2d88ecda0fab96bdcc21b36c41ace49794bead1fc9cc12399526a5968240c642 0000000000000000 0 - 
-  368130     in       2020-07-09 10:20:16 Z3  33333333.0000000000 9c9fca8b6bf3841f116461d819d6a9ba3b9a6b054f751bd12b1bd243d646cab0 0000000000000000 0 - 
-  368130    out       2020-07-09 10:20:16 CUTCOIN       100.0000000000 9c9fca8b6bf3841f116461d819d6a9ba3b9a6b054f751bd12b1bd243d646cab0 0000000000000000   0.0709820600  0 - 
-  368131     in       2020-07-09 10:22:00 Z2       100.0000000000 0515e38b86e07003f048f985b7ba0b51553066a9087c67cd7f71f422147352d2 0000000000000000 0 - 
-  368131    out       2020-07-09 10:22:00 CUTCOIN       100.0000000000 0515e38b86e07003f048f985b7ba0b51553066a9087c67cd7f71f422147352d2 0000000000000000   0.0709450100  0 - 
-  368132     in       2020-07-09 10:23:49 Z1     10000.0000000000 5a54bb956c7ee45c7b01815cb0a927c631c0cfb52ded095419fcfd015bfb285e 0000000000000000 0 - 
-  368132    out       2020-07-09 10:23:49 CUTCOIN       100.0000000000 5a54bb956c7ee45c7b01815cb0a927c631c0cfb52ded095419fcfd015bfb285e 0000000000000000   0.0709635300  0 - 
+  368114     in       2020-07-09 09:48:30  CUTCOIN        10.0000000000 578da8fa5af7cb41e4366c9b571504f5114a7238c889833121104b9f089554b8 0000000000000000 0 - 
+  368115     in       2020-07-09 09:50:07  CUTCOIN       100.0000000000 187f11c56e75545ca82cf01fcc14238e6fa985aa1c53dae77259e21588789ddd 0000000000000000 0 - 
+  368115     in       2020-07-09 09:50:07  CUTCOIN        10.0000000000 f5cfb6c0705c5fac52764bca3df57afcf1833a8df5d7fe523632384d8e817ab0 0000000000000000 0 - 
+  368115     in       2020-07-09 09:50:07  CUTCOIN        10.0000000000 44736fffd8168a2414706112fd98fd34c6a480c88828abbf8634ea8fe530d975 0000000000000000 0 - 
+  368115     in       2020-07-09 09:50:07  CUTCOIN        10.0000000000 0222e6079f42fb2e2ee447950560e090b9cc141157adfdb8f6242aff1c40b73b 0000000000000000 0 - 
+  368115     in       2020-07-09 09:50:07  CUTCOIN       100.0000000000 d469868314a53bf678bffa282cb49b06b3b7a14caf2c9ef8bfd116e2b0f6455e 0000000000000000 0 - 
+  368115     in       2020-07-09 09:50:07  CUTCOIN        10.0000000000 023f17b872aa33322824e647424fdccc3b5cfe4a7c05c1b805449930aa68571c 0000000000000000 0 - 
+  368116     in       2020-07-09 09:52:06  CUTCOIN       500.0000000000 2d88ecda0fab96bdcc21b36c41ace49794bead1fc9cc12399526a5968240c642 0000000000000000 0 - 
+  368130     in       2020-07-09 10:20:16       Z3  33333333.0000000000 9c9fca8b6bf3841f116461d819d6a9ba3b9a6b054f751bd12b1bd243d646cab0 0000000000000000 0 - 
+  368130    out       2020-07-09 10:20:16  CUTCOIN       100.0000000000 9c9fca8b6bf3841f116461d819d6a9ba3b9a6b054f751bd12b1bd243d646cab0 0000000000000000   0.0709820600  0 - 
+  368131     in       2020-07-09 10:22:00       Z2       100.0000000000 0515e38b86e07003f048f985b7ba0b51553066a9087c67cd7f71f422147352d2 0000000000000000 0 - 
+  368131    out       2020-07-09 10:22:00  CUTCOIN       100.0000000000 0515e38b86e07003f048f985b7ba0b51553066a9087c67cd7f71f422147352d2 0000000000000000   0.0709450100  0 - 
+  368132     in       2020-07-09 10:23:49       Z1     10000.0000000000 5a54bb956c7ee45c7b01815cb0a927c631c0cfb52ded095419fcfd015bfb285e 0000000000000000 0 - 
+  368132    out       2020-07-09 10:23:49  CUTCOIN       100.0000000000 5a54bb956c7ee45c7b01815cb0a927c631c0cfb52ded095419fcfd015bfb285e 0000000000000000   0.0709635300  0 - 
+  368807    out       2020-07-10 09:05:06       Z3         0.0000000000 0ea2183cf89304da580f42ddf1b584a04dbff759d494c87258986577714ba555 0000000000000000   0.0279219200  0 - 
+```
+
+### Coinburn address
+
+Coinburn address is a special public address with the unknown secret spend key. 
+
+```
+Standard address: TCU1iqbfjH8eG3dRDmWGy8UGLeDsU9EHcEhXGRrXi47NSj2PXpjaMKoce411rzhwggYGFy7MyTy27BMrQm55NNhF5yAm5mSo7F
+Secret view key:  86364a7a4e558ca836cd57aa0e54129d343b3d4347494f53596165676b6d710f
+```
+
+It is possible to generate the view wallet for this address:
+
+```
+./cutcoin-wallet-cli --testnet --generate-from-view-key ./wallet.bin
+```
+
+The example of balance output:
+
+```
+Starting refresh...
+Height 356673, txid <6bf3189a5142acc514a12f72276c90fd33e740b8fead422ff823c8d1323dc8f0>, CUTCOIN 100.0000000000, idx 0/0
+Height 356706, txid <3e9c74cde59ae025ebe4fb3ace810155b871fd4c6de139719aa4f33eceaf53df>, CUTCOIN 100.0000000000, idx 0/0
+Height 358149, txid <4e2c3754afc45ccb6581bb4fcbd308df6996d1426996c224da33fa61a10b1dfe>, CUTCOIN 100.0000000000, idx 0/0
+Height 361026, txid <814cfc6876e3b20bf8a362f44029c1a8c74e8a1762baf6c618c3baa71792ef1b>, CUTCOIN 100.0000000000, idx 0/0
+Height 368130, txid <9c9fca8b6bf3841f116461d819d6a9ba3b9a6b054f751bd12b1bd243d646cab0>, CUTCOIN 100.0000000000, idx 0/0
+Height 368131, txid <0515e38b86e07003f048f985b7ba0b51553066a9087c67cd7f71f422147352d2>, CUTCOIN 100.0000000000, idx 0/0
+Height 368132, txid <5a54bb956c7ee45c7b01815cb0a927c631c0cfb52ded095419fcfd015bfb285e>, CUTCOIN 100.0000000000, idx 0/0
+Height 371234, txid <aaff1ea4a102a5bb5a9018f81faffb2d0f63322abf921cef952d116afac82466>, CUTCOIN 100.0000000000, idx 0/0
+Height 375545, txid <cef1e05c12f0d42156f505648a3f57894bc0b90575c6600fb31dc97d855c3970>, CUTCOIN 100.0000000000, idx 0/0
+Refresh done, blocks received: 382890                           
+Untagged accounts:
+          Account               Balance      Unlocked balance                 Label
+ *       0 TCU1iq        900.0000000000        900.0000000000       Primary account
+----------------------------------------------------------------------------------
+          Total        900.0000000000        900.0000000000
 ```
