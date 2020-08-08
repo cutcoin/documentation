@@ -95,19 +95,19 @@ Any of the 3 friends can start the transaction, and will need to get the signatu
 
 ![s5](https://github.com/Satori-Nakamoto/images/blob/master/s5.png)
 
-This will generate a file called multisig_monero_tx in your shell working folder, the same folder mentioned earlier. For peace of mind, let’s do one transaction at a time. Let’s choose friend #2 to complete the signature for this transaction. If we choose a friend that we did not import the multisig file info from, we will get the error
+This will generate a file called multisig_cutcoin_tx in your shell working folder, the same folder mentioned earlier. (The screenshots in this guide are from an early version of the software, before rebranding, so they show instead multisig_monero_tx). For peace of mind, let’s do one transaction at a time. Let’s choose friend #2 to complete the signature for this transaction. If we choose a friend that we did not import the multisig file info from, we will get the error
 
     Error: Failed to sign multisig transaction: Final signed transaction not found: this transaction was likely made without our export data, so we cannot sign it
 
-Also, if our friend will send the transaction, he needs to have our file multisig_monero_tx in his shell working folder and then he can use sign_multisig with the file multisig_monero_tx. Whoever will send the transaction will do
+Also, if our friend will send the transaction, he needs to have our file multisig_cutcoin_tx in his shell working folder and then he can use sign_multisig with the file multisig_cutcoin_tx. Whoever will send the transaction will do
 
-    sign_multisig multisig_monero_tx
+    sign_multisig multisig_cutcoin_tx
 
 ![s7](https://github.com/Satori-Nakamoto/images/blob/master/s7.png)
 
-After verifying the address, amount, fees, ring size, and change address, our friend will press y and the transaction will be successfully signed to the file multisig_monero_tx. Now the transaction is ready to be relayed to the network. Our friend can send the file back to us or broadcast it himself by doing:
+After verifying the address, amount, fees, ring size, and change address, our friend will press y and the transaction will be successfully signed to the file multisig_cutcoin_tx. Now the transaction is ready to be relayed to the network. Our friend can send the file back to us or broadcast it himself by doing:
 
-    submit_multisig multisig_monero_tx
+    submit_multisig multisig_cutcoin_tx
 
 ![s8](https://github.com/Satori-Nakamoto/images/blob/master/s8.png)
 
@@ -117,8 +117,8 @@ To recap, the sending process went like:
 
 - At least 2 friends export_multisig_info and share their file with the other one (or both).
 - The other friend (or both) uses import_multisig_info with at least 1 other multisig info file.
-- Any of the friends with imported multisig info can start the transaction using the normal transfer command and generate a file called “multisig_monero_tx”, which should be sent to at least 1 other friend for signing.
-- At least 1 of the other 2 friends needs to sign this file by doing sign_multisig multisig_monero_tx on the file
-- The signed file is submitted to the network with submit_multisig multisig_monero_tx
+- Any of the friends with imported multisig info can start the transaction using the normal transfer command and generate a file called “multisig_cutcoin_tx”, which should be sent to at least 1 other friend for signing.
+- At least 1 of the other 2 friends needs to sign this file by doing sign_multisig multisig_cutcoin_tx on the file
+- The signed file is submitted to the network with submit_multisig multisig_cutcoin_tx
 
-If the friends want to send another transaction, they should go back to step 1 and start the process again. If you don’t delete the file multisig_monero_tx it will just be overwritten next time a multisig transaction is created.
+If the friends want to send another transaction, they should go back to step 1 and start the process again. If you don’t delete the file multisig_cutcoin_tx it will just be overwritten next time a multisig transaction is created.
