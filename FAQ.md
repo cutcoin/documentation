@@ -21,7 +21,9 @@ CUT is currently listed on [STEX](https://app.stex.com/en/trade/pair/BTC/CUT/1D)
 CUTcoin started out as a PoW coin that used CUTcoin's own hashing algorithm. On March 7th, 2019 at block 52 000, CUTcoin switched to PoS.
 
 ## Is CUT vulnerable to 51% attack?
-As known, 51% attack is when a miner or mining pool controls 51% of the computational power of the network and creates fraudulent blocks of transactions for himself while invalidating the transactions of others in the network. With a PoS, the attacker would need to obtain 51% of the cryptocurrency to carry out a 51% attack, which becomes very costly with the growth of the network, let alone it will require quite some coding both in daemon and in the wallet. Let's assume you need 40 confirmation to deposit to exchange. Even if you have a group of 75% of the stake that signs "official" and "alternative" chain, chances that 75% can grow a heavier chain than 100% are quite low. The 75% are much better doing classical attack — leave the other 25% alone to build a weaker chain. Eventually it boils down to convincing more than half of the anonymous stake to perform an attack that will in fact discredit the chain and the coin. It’s neither feasible nor reasonable.
+As known, 51% attack is when a miner or mining pool controls 51% of the computational power of the network and creates fraudulent blocks of transactions for himself while invalidating the transactions of others in the network. With a PoS, the attacker would need to obtain 51% of the cryptocurrency to carry out a 51% attack, which becomes very costly with the growth of the network, let alone it will require quite some coding both in daemon and in the wallet.
+
+Let's assume you need 40 confirmation to deposit to exchange. Even if you have a group of 75% of the stake that signs "official" and "alternative" chain, chances that 75% can grow a heavier chain than 100% are quite low. The 75% are much better doing classical attack — leave the other 25% alone to build a weaker chain. Eventually it boils down to convincing more than half of the anonymous stake to perform an attack that will in fact discredit the chain and the coin. It’s neither feasible nor reasonable.
 
 ## What was a premine?
 There was a premine of 2% (4M coins). 9.3% of the coins were minted during the PoW phase (18 506 411 CUT) which leaves 88.7% for the PoS era, or 179 493 589 CUT. About 250 CUT are minted every 2 minutes, and after a total supply of 200M is reached, tail emission of 0.6 CUT per block will begin.
@@ -29,7 +31,7 @@ There was a premine of 2% (4M coins). 9.3% of the coins were minted during the P
 ## How was premine distributed?
 The premine was locked up in a custody solution not associated with the CUTcoin team. This was done based on the reasoning that the team may need to pay for development of core features. The use of funds can only be decided by unanimous decision of the core team members, and the CUT community be notified.
 
-## What PoS algorithm does the CUTcoin use?
+## What PoS algorithm does CUTcoin use?
 CUTcoin uses a significantly revised version of Nxt Proof of Stake protocol. The updated version is called Byzantine Berserker. More details in the original [whitepaper](https://static.cutcoin.org/cutcoin-whitepaper-v1.0.pdf).
 
 ## How does staking work?
