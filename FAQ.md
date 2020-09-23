@@ -30,10 +30,10 @@ There was a premine of 2% (4M coins). 9.3% of the coins were minted during the P
 The premine was locked up in a custody solution not associated with the CUTcoin team. This was done based on the reasoning that the team may need to pay for development of core features. The use of funds can only be decided by unanimous decision of the core team members, and the CUT community be notified.
 
 ## What PoS algorithm does the CUTcoin use?
-CUTcoin uses a significantly revised version of Nxt Proof of Stake protocol. The updated version is called Byzantine Berserker. More details in the original whitepaper.
+CUTcoin uses a significantly revised version of Nxt Proof of Stake protocol. The updated version is called Byzantine Berserker. More details in the original [whitepaper](https://static.cutcoin.org/cutcoin-whitepaper-v1.0.pdf).
 
 ## How does staking work?
-The explanation can be found here.
+The explanation can be found [here](https://cutcoin.org/stakingguide).
 
 ## Is the CNT-1 token standard the same as ERC20? 
 Not exactly. While ERC-20 is used for all smart contracts on the Ethereum blockchain for token implementation, CNT-1 tokens are designed to be used in the CUTcoin blockchain for privacy-enhanced tokenization. With a growth of DeFi protocols, privacy becomes a domain of high importance, and we believe CNT-1 can be the laying ground of new projects and applications.
