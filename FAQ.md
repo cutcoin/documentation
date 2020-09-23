@@ -14,7 +14,7 @@ First off, CUT makes use of Proof of Stake instead of Proof of Work consensus, a
 
 ## Where can one get CUT?
 
-CUT is currently listed on STEX, CREX24, P2PB2B and Tradeogre.
+CUT is currently listed on [STEX](https://app.stex.com/en/trade/pair/BTC/CUT/1D), [CREX24](https://crex24.com/exchange/CUT-BTC), [P2PB2B](https://p2pb2b.io/trade/CUT_BTC) and [Tradeogre](https://tradeogre.com/exchange/BTC-CUT).
 
 # Technical questions
 ## Is CUT a PoW or PoS coin? 
