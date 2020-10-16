@@ -1,5 +1,5 @@
 
-# Cutcoin 3.0 testnet with CryptoNote Tokens (CNT1) User Manual.
+# Cutcoin CryptoNote Tokens (CNT1) User Manual
 
 ## Introduction
 
@@ -15,7 +15,15 @@ Tokens have unique names and corresponding unique IDs. Cutcoin ID is 0 (zero). E
 
 -token name must be unique, i.e. no other token with the same name has been created and persists in the Cutcoin blockchain. Token name can consist of English capitalized letters, and digits. Token name length is 1 - 8 characters. CUT and CUTCOIN names are not allowed for security reasons.
 
--token creation fee (TCF) + transaction fee must be payed in cutcoins, so the user must have enough balance. Current TCF is 100CUT, it's a flat rate that doesn't depend on name, token supply or anything else. Transaction fee is estimated dynamically during the process of transaction creation, but in most cases it is less then 1CUT. So, one should have 101CUT to create a token. TCF goes to so called 'coinburn address' which is public, but all funds it receives become unspendable for any user.
+-token creation fee (TCF) + transaction fee must be payed in cutcoins, so the user must have enough balance. Current TCF is 100CUT, it's a flat rate that doesn't depend on name, token supply or anything else. Transaction fee is estimated dynamically during the process of transaction creation, but in most of the cases it is less then 1CUT. So, one should have 101CUT to create a token. TCF goes to so called 'coinburn address' which is public, but all funds it receives become unspendable for any user.
+
+Coin burn address has the following keys:
+
+```
+view public key  <cb610f52bad51212e0ec4aa205bae8e0fe0df555b03def7ca332fbd29a831bbc>
+view secret key  <86364a7a4e558ca836cd57aa0e54129d343b3d4347494f53596165676b6d710f>
+spend public key <869fa358dfdec268a32fea169ba300e8da06ad0e4751e61daea5429a4599cc0a>
+```
 
 The token creation command is
 
