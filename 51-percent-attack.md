@@ -1,4 +1,4 @@
-In Cutcoin, we have quite a lot of questions about PoS consensus and resistance to 51% attacks. This may be related to the fact that PoS coins are the next generation of cryptocurrency (first were PoW) and often have more complicated machinery. Let's dive into details.
+In Cutcoin, we get quite a lot of questions about PoS consensus and resistance to 51% attacks. This may be related to the fact that PoS coins are the next generation of cryptocurrency (first was PoW) and often have more complicated machinery. Let's dive into details.
 
 ### Attack Planning
 
@@ -6,35 +6,35 @@ Many different types of fraud are hidden behind the name '51% attack', this is d
 
 ### Compare Scenarios and Initial Investments Required to Attack PoW and PoS Coins.
 
-We need to compare scenarios and required resources to perform the attack on both types of the systems: PoW and PoS. Consider a coin with the smaller or medium capitalization. All data are taken on 12/15/2020.
+We need to compare scenarios and required resources to perform the attack on both types of systems: PoW and PoS. Consider a coin with small or medium capitalization. All data are taken on 12/15/2020.
 
-If it is a PoW coin one needs to have the computational resources that cover ~50% of the typical hashrate. Look at Zcash, #36 in CMC rank with 37543BTC capitalization [1]. It has ~8.5MSol/s hashrate. Nicehash offers ~0.5Msol for approx. 0.5490BTC/MSol/day. We can use this data as a reference point to estimate the required financial investments to rent the mining facilities that allow to attack. The summary cost is approximately 4.7BTC per day. If an attacker prefers to buy the hardware instead it's also possible as it has good liquidity and its price has no correlation with the price of a specific coin.
+If it is a PoW coin one needs to have the computational resources that cover ~50% of the typical hashrate. Look at Zcash, #36 in CMC rank with 37543 BTC capitalization [1]. It has ~8.5 MSol/s hashrate. Nicehash offers ~0.5 Msol for approx. 0.5490 BTC/MSol/day. We can use this data as a reference point to estimate the required financial investment needed to rent the mining facilities for an attack. The total cost is approximately 4.7 BTC per day. If an attacker prefers to buy the hardware instead it's also possible as it has good liquidity and its price has no correlation with the price of a specific coin.
 
-Now let's take a look at Cutcoin. It has ~360BTC capitalization [3], ~80% of the coins, on average, are staking. An attacker needs to buy approximately 40% of the circulating supply on the market, and this activity may lead to significant price growth. In reality, it takes significant time to enlarge someone's share if use buying on the market. The circulating liquidity is limited due to the reason that coins should be staking, so buying of 1% - 5% of the total supply should empty exchanges and significantly drive the prices up. It has visible effect and the community defenitly note it. 
+Now let's take a look at Cutcoin. It has ~360 BTC capitalization [3], ~80% of the coins, on average, are staking. An attacker needs to buy approximately 40% of the circulating supply on the market, and this activity may lead to significant price growth. In reality, it takes significant time to enlarge someone's share when buying on the market. The circulating liquidity is limited due to the reason that coins should be staking, so buying of 1% - 5% of the total supply would empty exchanges and significantly drive the prices up. It has a visible effect and the community would definitely notice it. 
 
-Even at the current prices half of the staking coins is approximately 144BTC that is 30 times more than in the case with Zcash.
+Even at the current prices half of the staking coins is approximately 144 BTC, which is **30 times more expensive** than in the case with Zcash.
 
 ```
 Let's say it again: 
-The initial investments to attack Cutcoin are ~40 times higher 
-then those to attack Zcash that has 104 times bigger capitalization
+The initial investments to attack Cutcoin are ~30 times higher 
+than those to attack Zcash, which has 104 times bigger capitalization.
 ```
 
-### Strightforward 51 Percent Attack
+### Straightforward 51 Percent Attack
 
 The straightforward attack requires 3 main steps to be done:
-- gain the control over the blockchain (buy 51% of the staking supply);
+- gain control over the blockchain (buy 51% of the staking supply);
 - successful realization of the fraud strategy (double spend, transaction rollback, etc);
 - sell the coins back on the market (sell 51% of the staking supply).
 
-Obviously, the market responds to events related to the specific coin. As we mentioned before, such types of attacks cannot remain undetected, so after step 2 the market price of a coin goes down. Historical data [4] let us expect at least a 30-50% price drop for PoS coin, that is approximately 20% of the total supply. To make a profit an attacker needs to double spend, or withdraw, at least 20% of the total supply (beyond those 40% that give him the control over the blockchain). In reality, this estimation is extremely optimistical, from the point of view of an attacker, as we didn't take into account multiple overheads, such as exchange fees, market response to the buying of 40% of total coin supply, lost profits from staking etc. This scenario demonstrates that big initial investments and multiple risks don't guarantee any profits.
+Obviously, the market responds to events related to the specific coin. As we mentioned before, such types of attacks cannot remain undetected, so after step 2 the market price of a coin goes down. Historical data [4] leads us to expect at least a 30-50% price drop for PoS coin, that is approximately 20% of the total supply. To make a profit an attacker needs to double spend, or withdraw, at least 20% of the total supply (beyond those 40% that give him the control over the blockchain). In reality, this estimation is extremely optimistic from the point of view of an attacker, as we didn't take into account multiple overheads, such as exchange fees, market response to the buying of 40% of total coin supply, lost profits from staking etc. This scenario demonstrates that big initial investments and multiple risks don't guarantee any profits.
 
 ### Short Selling Attack
 
-This attack is the further development of 'Straightforward 51 Percent Attack'. An attacker follow this scheme:
+This attack is the further development of 'Straightforward 51 Percent Attack'. An attacker follows this scheme:
 
-- gain the control over the blockchain; (buy 51% of the staking supply);
-- short sells of the (borrowed) coin on the market;
+- gain control over the blockchain; (buy 51% of the staking supply);
+- short sell the (borrowed) coin on the market;
 - public comprometation of the blockchain;
 - sell the coins back on the market (sell 51% of the staking supply).
 
@@ -42,7 +42,7 @@ This strategy has been investigated for example in [4]. The attacker's profit ca
 
 ### Takeaways
 
-If applying non-cooperative game theory that describes the behaviour of actors, each plays independently to maximize his profit, to PoS protocol, it appears, that the system incentivizes them to follow 'honest strategy' as it gives stable profits and minimizes reputational losses and financial risks.
+If applying non-cooperative game theory that describes the behaviour of actors, each plays independently to maximize his profit. In PoS protocol it appears that the system incentivizes them to follow an 'honest strategy', as it gives stable profits and minimizes reputational losses and financial risks.
 
 
 [1] https://coinmarketcap.com/currencies/zcash
