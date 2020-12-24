@@ -27,15 +27,25 @@ The straightforward attack requires 3 main steps to be done:
 - successful realization of the fraud strategy (double spend, transaction rollback, etc);
 - sell the coins back on the market (sell 51% of the staking supply).
 
-Obviously, the market responds to events related to the specific coin. As we mentioned before, such types of attacks cannot remain undetected, so after step 2 the market price of a coin goes down. Historical data [4] leads us to expect at least a 30-50% price drop for PoS coin, that is approximately 20% of the total supply. To make a profit an attacker needs to double spend, or withdraw, at least 20% of the total supply (beyond those 40% that give him the control over the blockchain). In reality, this estimation is extremely optimistic from the point of view of an attacker, as we didn't take into account multiple overheads, such as exchange fees, market response to the buying of 40% of total coin supply, lost profits from staking etc. This scenario demonstrates that big initial investments and multiple risks don't guarantee any profits.
+Obviously, the market responds to events related to the specific coin. As we mentioned before, such types of attacks cannot remain undetected, so after step 2 the market price of a coin goes down. Historical data [4] leads us to expect at least a 30-50% price drop for PoS coin, so for an attacker who holds at least 40% of the total supply it is approximately 20% of the total supply:
+
+```
+Losses = S * Ka * Kpd = 80% * 0.5 * 0.5 = 20%, here
+
+S     is the fraction of staking coins,
+Ka    is the coefficient equal to amount of the coins required to attack divided by the amount of all staking coins,
+Kpd   is the coefficient of the price drop after the attack happened.
+```
+
+To make a profit an attacker needs to double spend, or withdraw, at least 20% of the total supply (beyond those 40% that give him the control over the blockchain). In reality, this estimation is extremely optimistic from the point of view of an attacker, as we didn't take into account multiple overheads, such as exchange fees, market response to the buying of 40% of total coin supply, lost profits from staking etc. This scenario demonstrates that big initial investments and multiple risks don't guarantee any profits.
 
 ### Short Selling Attack
 
 This attack is the further development of 'Straightforward 51 Percent Attack'. An attacker follows this scheme:
 
 - gain control over the blockchain; (buy 51% of the staking supply);
-- short sell the (borrowed) coin on the market;
-- public comprometation of the blockchain;
+- short sell the (borrowed) coins on the market;
+- publicly visible compromise of the blockchain;
 - sell the coins back on the market (sell 51% of the staking supply).
 
 This strategy has been investigated for example in [4]. The attacker's profit can be estimated as [(short sold coins) - (coins being on stake)] * (coin price drop). Fees, price movements and other overheads are not taken into account. We can see that the profit is positive if (short sold coins) > (coins being on stake). As Cutcoin has a flat staking mechanism (not a delegated PoS or multi layered nodes with different ranks), short sold coins must be > 40% (and 40% are on stake at the same time). This looks theoretically possible, but in practice no exchange can borrow such a liquidity, as it brings significant risks for them, at least for the reason that someone could try to withdraw it. Worth to mention that at the moment we don't know any public exchange that allows to open short positions in Cutcoin at all.
@@ -52,4 +62,3 @@ If applying non-cooperative game theory that describes the behaviour of actors, 
 [3] https://coinmarketcap.com/currencies/cutcoin
 
 [4] https://eprint.iacr.org/2020/019.pdf
-
