@@ -25,6 +25,8 @@ As known, 51% attack is when a miner or mining pool controls 51% of the computat
 
 Let's assume you need 40 confirmation to deposit to exchange. Even if you have a group of 75% of the stake that signs "official" and "alternative" chain, chances that 75% can grow a heavier chain than 100% are quite low. The 75% are much better doing classical attack — leave the other 25% alone to build a weaker chain. Eventually it boils down to convincing more than half of the anonymous stake to perform an attack that will in fact discredit the chain and the coin. It’s neither feasible nor reasonable.
 
+We've added more detailed investigation of the possible scenario [here](https://github.com/cutcoin/documentation/blob/master/51-percent-attack.md).
+
 ## What was a premine?
 There was a premine of 2% (4M coins). 9.3% of the coins were minted during the PoW phase (18 506 411 CUT) which leaves 88.7% for the PoS era, or 179 493 589 CUT. About 250 CUT are minted every 2 minutes, and after a total supply of 200M is reached, tail emission of 0.6 CUT per block will begin.
 
@@ -42,6 +44,9 @@ Not exactly. While ERC-20 is used for all smart contracts on the Ethereum blockc
 
 ## Do CNT-1 tokens support smart contracts?
 In the particular implementation there’s no smart contract support.
+
+## What is the coin burn address and how can I explore transfers to it?
+Cutcoin has a special 'coin burn addres' which can be used to burn coins. If somebody sends coins to this address they can never be spent as the private spend key is not known. [Here](https://github.com/cutcoin/documentation/blob/master/coin-burn-address.md) is the short document about it.
 
 # Privacy questions
 ## “I have nothing to hide”
