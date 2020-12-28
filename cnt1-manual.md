@@ -20,6 +20,7 @@ Tokens have unique names and corresponding unique IDs. Cutcoin ID is 0 (zero). E
 Coin burn address has the following keys:
 
 ```
+address           cutbEUhEhaWeG3dRDmWGy8UGLeDsU9EHcEhXGRrXi47NSj2PXpjaMKoce411rzhwggYGFy7MyTy27BMrQm55NNhF5yAm4c1ADi
 view public key  <cb610f52bad51212e0ec4aa205bae8e0fe0df555b03def7ca332fbd29a831bbc>
 view secret key  <86364a7a4e558ca836cd57aa0e54129d343b3d4347494f53596165676b6d710f>
 spend public key <869fa358dfdec268a32fea169ba300e8da06ad0e4751e61daea5429a4599cc0a>
