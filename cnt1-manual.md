@@ -9,6 +9,8 @@ CryptoNote Tokens implemented in Cutcoin is the extension of CryptoNote protocol
 
 Tokens have unique names and corresponding unique IDs. Cutcoin ID is 0 (zero). Each transaction output in the system has its ID, and it's not encrypted, so users can see it. When a transaction with tokens has been sent, somebody can note that the tokens with specific ID are circulating, but the sender and receiver are not known due to one time addreses protocol. Transaction amounts are also hidden thanks to Ring Confidential Transaction (RCT), so overall privacy is not worse than that of Cutcoin.
 
+Token can be one of two possible types: with the visible or hidden supply. If the supply is hidden only the creator of the token knows its exact value.
+
 ## User operations
 
 ### To create a new token command line (CLI) wallet can be used. The requirements for this operation are:
@@ -29,12 +31,14 @@ spend public key <869fa358dfdec268a32fea169ba300e8da06ad0e4751e61daea5429a4599cc
 The token creation command is
 
 ```
-create_token <token_name> <token_supply>
+create_token <token_name> <token_supply> [token_type]
 ```
 
 token_name, as described before, is the user defined name of the token. It has integer representation called 'token id'. Token id and token names have one-to-one relation: 'token name' -> 'token id', 'token id' -> 'token name'. This means, consequently, that token id is also unique.
 
-token supply is the total number of tokens with the 'token_name'. It can be value in the range 1 .. 200 000 000, the latter is the total Cutcoin supply.
+token_supply is the total number of tokens with the 'token_name'. It can be value in the range 1 .. 200 000 000, the latter is the total Cutcoin supply.
+
+token_type is the optional parameter that defines token supply visibility. Supported token types are 'hidden' for tokens with the hidden supply and 'public' for tokens with publicly visible supply.
 
 The transaction that creates new token is called 'token genesis transaction' (tgtx). It has a specific structire and acceptance rules since, figurally, tokens are being created out of thin air.
 
@@ -119,16 +123,17 @@ The output looks like this:
 
 ```
 get_tokens
-           Name              Token ID                Supply                  Unit
-          ALPHA   4705223981953712128                   100           10000000000
-           BETA   4775315618045886464                   200           10000000000
-           BONG   4778123796513030144                   650           10000000000
-          DELTA   4919422092723617792                   400           10000000000
-          GAMMA   5134470044377415680                   300           10000000000
-         REBONG   5928217392886251520                    15           10000000000
-             Z1   6498975737272336384                 10000           10000000000
-             Z2   6499257212249047040                   100           10000000000
-             Z3   6499538687225757696              33333333           10000000000
+           Name              Token ID                Supply                  Unit           Type
+          ALPHA   4705223981953712128                   100           10000000000  public supply
+           BETA   4775315618045886464                   200           10000000000  public supply
+           BONG   4778123796513030144                   650           10000000000  public supply
+          DELTA   4919422092723617792                   400           10000000000  public supply
+          GAMMA   5134470044377415680                   300           10000000000  public supply
+         REBONG   5928217392886251520                    15           10000000000  public supply
+             Z1   6498975737272336384                 10000           10000000000  public supply
+             Z2   6499257212249047040                   100           10000000000  public supply
+             Z3   6499538687225757696              33333333           10000000000  public supply
+         T02249   6066403889273962496                     0           10000000000 private supply
 ```
 
 This command has an optional mask 'token_name_prefix' that filters output. The example of this command usage:
