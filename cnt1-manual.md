@@ -7,7 +7,7 @@ Cutcoin Token is the named entity representing a specific value. Once created, t
 
 CryptoNote Tokens implemented in Cutcoin is the extension of CryptoNote protocol that allows creating and manipulating named tokens. Tokens are very similar to the coin itself, and that's one of their advantages: a well known and time proved protocol that guarantees reliable privacy and security. The only place where the information about tokens is stored is the Cutcoin blockchain, and this means no additional centralization is added.
 
-Tokens have unique names and corresponding unique IDs. Cutcoin ID is 0 (zero). Each transaction output in the system has its ID, and it's not encrypted, so users can see it. When a transaction with tokens has been sent, somebody can note that the tokens with specific ID are circulating, but the sender and receiver are not known due to one time addreses protocol. Transaction amounts are also hidden thanks to Ring Confidential Transaction (RCT), so overall privacy is not worse than that of Cutcoin.
+Tokens have unique names and corresponding unique IDs. Cutcoin ID is 0 (zero). Each transaction output in the system has its token ID, and it's not encrypted, so users can see it. When a transaction with tokens has been sent, somebody can note that the tokens with specific ID are circulating, but the sender and receiver are not known due to one time addreses protocol. Transaction amounts are also hidden thanks to Ring Confidential Transaction (RCT), so overall privacy is not worse than that of Cutcoin.
 
 Token can be one of two possible types: with the visible or hidden supply. If the supply is hidden only the creator of the token knows its exact value.
 
@@ -34,11 +34,17 @@ The token creation command is
 create_token <token_name> <token_supply> [token_type]
 ```
 
-token_name, as described before, is the user defined name of the token. It has integer representation called 'token id'. Token id and token names have one-to-one relation: 'token name' -> 'token id', 'token id' -> 'token name'. This means, consequently, that token id is also unique.
+'token_name', as described before, is the user defined name of the token. It has integer representation called 'token id'. Token id and token names have one-to-one relation: 'token name' -> 'token id', 'token id' -> 'token name'. This means, consequently, that token id is also unique.
 
-token_supply is the total number of tokens with the 'token_name'. It can be value in the range 1 .. 200 000 000, the latter is the total Cutcoin supply.
+'token_supply' is the total number of tokens with the 'token_name'. It can be value in the range 1 .. 1 844 674 407, the latter is 
 
-token_type is the optional parameter that defines token supply visibility. Supported token types are 'hidden' for tokens with the hidden supply and 'public' for tokens with publicly visible supply.
+```
+max(uint_64t) / COIN,
+```
+
+and the COIN = 10 000 000 000.
+
+'token_type' is the optional parameter that defines token supply visibility. Supported token types are 'hidden' for tokens with the hidden supply and 'public' for tokens with publicly visible supply.
 
 The transaction that creates new token is called 'token genesis transaction' (tgtx). It has a specific structire and acceptance rules since, figurally, tokens are being created out of thin air.
 
