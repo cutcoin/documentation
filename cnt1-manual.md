@@ -36,13 +36,13 @@ create_token <token_name> <token_supply> [token_type]
 
 'token_name', as described before, is the user defined name of the token. It has integer representation called 'token id'. Token id and token names have one-to-one relation: 'token name' -> 'token id', 'token id' -> 'token name'. This means, consequently, that token id is also unique.
 
-'token_supply' is the total number of tokens with the 'token_name'. It can be value in the range 1 .. 1 844 674 407, the latter is 
+'token_supply' is the total number of tokens with the 'token_name'. For tokens with public supply it can be value in the range 1 .. 1 844 674 407, the latter value is 
 
 ```
-max(uint_64t) / COIN,
+max(uint_64t) / COIN, COIN = 10 000 000 000.
 ```
 
-and the COIN = 10 000 000 000.
+For tokens with private supply it can also be in the range 1 .. 1 844 674 407, but the daemons don't check the exact value (as they don't see it) and give no garantees about it.
 
 'token_type' is the optional parameter that defines token supply visibility. Supported token types are 'hidden' for tokens with the hidden supply and 'public' for tokens with publicly visible supply.
 
