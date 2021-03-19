@@ -35,8 +35,6 @@ If the cutcoin-wallet-rpc was executed with the `--rpc-login` argument as `usern
 
 Note: "atomic units" refer to the smallest fraction of 1 CUT according to the cutcoind implementation. **1 CUT = 1e10 atomic units.**
 
-This list has been updated on a frozen code on 2018-09-14 after merged commit bb30a7236725e456138f055f96a634c75ce2b491 (Wallet RPC version 1.3), and at block height 1643308.
-
 ### Index of JSON RPC Methods:
 
 *   [set_daemon](#set_daemon)
