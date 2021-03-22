@@ -5,7 +5,7 @@
 
 Cutcoin Token is the named entity representing a specific value. Once created, tokens can be owned or sent to another owner. No duplicate token names are allowed.
 
-CryptoNote Tokens implemented in the Cutcoin eco-system are an extension of the CryptoNote protocol that allows users to create uniquely-named privacy-focused assets on the Cutcoin chain. Tokens are very similar to the native coin itself and It is one of their advantages: a well-known and time-proven protocol that guarantees reliable privacy and security. The only place where the token information stored is the Cutcoin blockchain, and this means no additional centralization is added.
+CryptoNote Tokens implemented in the Cutcoin eco-system are an extension of the CryptoNote protocol that allows users to create uniquely-named privacy-focused assets on the Cutcoin chain. Tokens are very similar to the native coin itself and it is one of their advantages: a well-known and time-proven protocol that guarantees reliable privacy and security. The only place where the token information stored is the Cutcoin blockchain, and this means no additional centralization is added.
 
 Tokens have unique names and corresponding unique IDs. The Cutcoin ID is '0' (zero). Each transaction output in the system has its own token ID which is not encrypted and visible on the block explorer. When a transaction with tokens has been generated, anyone can notice that the tokens with a specific ID are in circulation, but the sender and receiver are not known because of the one-time addresses protocol. Transaction amounts also remain hidden due to Ring Confidential Transaction (RCT), so overall privacy is not worse than that of the Cutcoin.
 
