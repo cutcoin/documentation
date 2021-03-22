@@ -7,9 +7,10 @@ Cutcoin Token is the named entity representing a specific value. Once created, t
 
 CryptoNote Tokens implemented in the Cutcoin eco-system are an extension of the CryptoNote protocol that allows users to create uniquely-named privacy-focused assets on the Cutcoin chain. Tokens are very similar to the native coin itself and It is one of their advantages: a well-known and time-proven protocol that guarantees reliable privacy and security. The only place where the token information stored is the Cutcoin blockchain, and this means no additional centralization is added.
 
-Tokens have unique names and corresponding unique IDs. Cutcoin ID is 0 (zero). Each transaction output in the system has its token ID, and it's not encrypted, so users can see it. When a transaction with tokens has been sent, somebody can note that the tokens with specific ID are circulating, but the sender and receiver are not known due to one time addreses protocol. Transaction amounts are also hidden thanks to Ring Confidential Transaction (RCT), so overall privacy is not worse than that of Cutcoin.
+Tokens have unique names and corresponding unique IDs. The Cutcoin ID is '0' (zero). Each transaction output in the system has its own token ID which is not encrypted and visible on the block explorer. When a transaction with tokens has been generated, anyone can notice that the tokens with a specific ID are in circulation, but the sender and receiver are not known because of the one-time addresses protocol. Transaction amounts also remain hidden due to Ring Confidential Transaction (RCT), so overall privacy is not worse than that of the Cutcoin.
 
-Token can be one of two possible types: with the visible or hidden supply. If the supply is hidden only the creator of the token knows its exact value.
+A CNT1 token can be one of the two possible types: (1) with the visible supply (2) with the hidden supply.
+For the hidden supply kind of tokens, the total supply is hidden for the public and only the token creator knows the exact supply of the specific token.
 
 ## User operations
 
