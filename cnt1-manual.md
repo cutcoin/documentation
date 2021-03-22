@@ -5,7 +5,7 @@
 
 Cutcoin Token is the named entity representing a specific value. Once created, tokens can be owned or sent to another owner. No duplicate token names are allowed.
 
-CryptoNote Tokens implemented in Cutcoin is the extension of CryptoNote protocol that allows creating and manipulating named tokens. Tokens are very similar to the coin itself, and that's one of their advantages: a well known and time proved protocol that guarantees reliable privacy and security. The only place where the information about tokens is stored is the Cutcoin blockchain, and this means no additional centralization is added.
+CryptoNote Tokens implemented in the Cutcoin eco-system are an extension of the CryptoNote protocol that allows users to create uniquely-named privacy-focused assets on the Cutcoin chain. Tokens are very similar to the native coin itself and It is one of their advantages: a well-known and time-proven protocol that guarantees reliable privacy and security. The only place where the token information stored is the Cutcoin blockchain, and this means no additional centralization is added.
 
 Tokens have unique names and corresponding unique IDs. Cutcoin ID is 0 (zero). Each transaction output in the system has its token ID, and it's not encrypted, so users can see it. When a transaction with tokens has been sent, somebody can note that the tokens with specific ID are circulating, but the sender and receiver are not known due to one time addreses protocol. Transaction amounts are also hidden thanks to Ring Confidential Transaction (RCT), so overall privacy is not worse than that of Cutcoin.
 
@@ -13,7 +13,7 @@ Token can be one of two possible types: with the visible or hidden supply. If th
 
 ## User operations
 
-### To create a new token command line (CLI) wallet can be used. The requirements for this operation are:
+### To create a new token, command line (CLI) wallet can be used. The requirements for this operation are:
 
 -token name must be unique, i.e. no other token with the same name has been created and persists in the Cutcoin blockchain. Token name can consist of English capitalized letters, and digits. Token name length is 1 - 8 characters. CUT and CUTCOIN names are not allowed for security reasons.
 
