@@ -2379,3 +2379,4 @@ Example:
       "version": ""
     }
 
+Source: Reworked from [Monero Wallet RPC](https://www.getmonero.org/resources/developer-guides/wallet-rpc.html)
