@@ -2909,3 +2909,5 @@ Example:
         "version": 65539
       }
     }
+
+Source: Reworked from [Monero Daemon RPC](https://www.getmonero.org/resources/developer-guides/daemon-rpc.html)
