@@ -351,7 +351,7 @@ Example:
         },{
           "account_index": 1,
           "balance": 0,
-          "base_address": "77Vx9cs1VPicFndSVgYUvTdLCJEZw9h81hXLMYsjBCXSJfUehLa9TDW3Ffh45SQa7xb6dUs18mpNxfUhQGqfwXPSMrvKhVp",
+          "base_address": "ctsT6VcH4Djjob3xm7y16o6xKFAb2UYkU2LgGadosyAHa37GZpKk6hv6YrXenHjPAZEoMCe1ae5KxidqrzQkvEbHL9d6Km6xC7",
           "label": "Secondary account",
           "tag": "myTag",
           "unlocked_balance": 0
@@ -387,7 +387,7 @@ Example:
       "jsonrpc": "2.0",
       "result": {
         "account_index": 1,
-        "address": "77Vx9cs1VPicFndSVgYUvTdLCJEZw9h81hXLMYsjBCXSJfUehLa9TDW3Ffh45SQa7xb6dUs18mpNxfUhQGqfwXPSMrvKhVp"
+        "address": "ctsT6VcH4Djjob3xm7y16o6xKFAb2UYkU2LgGadosyAHa37GZpKk6hv6YrXenHjPAZEoMCe1ae5KxidqrzQkvEbHL9d6Km6xC7"
       }
     }
 
@@ -903,7 +903,7 @@ Alias: _None_.
 Inputs:
 
 *   _token_name_ - string; Token name, 8 symbols max, capital letters of digits.
-*   _token_supply_ - unsigned int; Supply of the token, 200000000 max.
+*   _token_supply_ - unsigned int; Supply of the token, 1 844 674 407 max.
 *   _token_type_ - unsigned int; (Optional) 1 - public supply (default), 2 - hidden supply.
 *   _token_unit_ - unsigned int; (Not used) Token unit.
 
@@ -916,7 +916,7 @@ Outputs:
 Example:
 
 
-    $ curl http://localhost:24250/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"create_token","params":{"token_name":"TEST1234","token_supply":200000000,"token_type":2}}' -H 'Content-Type: application/json'
+    $ curl http://localhost:24250/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"create_token","params":{"token_name":"TEST1234","token_supply":1844674407,"token_type":2}}' -H 'Content-Type: application/json'
     {
       "id": "0",
       "jsonrpc": "2.0",
@@ -940,7 +940,7 @@ Inputs:
 *   _destinations_ - array of destinations to receive token:
     *   _amount_ - unsigned int; Amount to send to each destination, in atomic units.
     *   _address_ - string; Destination public address.
-    *   _token_id_ - string; Token ID.
+    *   _token_id_ - unsigned int; Token ID.
 *   _account_index_ - unsigned int; (Optional) Transfer from this account index. (Defaults to 0)
 *   _subaddr_indices_ - array of unsigned int; (Optional) Transfer from this set of subaddresses. (Defaults to empty - all indices)
 *   _ring_size_ - unsigned int; Number of outputs to mix in the transaction (this output + N decoys from the blockchain).
@@ -1008,7 +1008,7 @@ Outputs:
 Example:
 
 
-    $ curl http://127.0.0.1:24250/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"token_balance","params":{"account_index":0,"address_indices":[0,1]}}' -H 'Content-Type: application/json'
+    $ curl http://127.0.0.1:24250/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"token_balance","params":{"token_id":4704081279044288512,"account_index":0,"address_indices":[0,1]}}' -H 'Content-Type: application/json'
     {
       "id": "0",
       "jsonrpc": "2.0",
@@ -1030,6 +1030,7 @@ Example:
           "num_unspent_outputs": 1,
           "unlocked_balance": 59985211200000
         }],
+        "token_id": 4704081279044288512,
         "unlocked_balance": 157443303037455077
       }
     }
@@ -1050,26 +1051,26 @@ Outputs:
 
 *   _tokens_ - array of token_info; Information for each token in the DB.
     *   _id_ - unsigned int; Token ID.
-    *   _type_ - string; "1" - public supply; "2" - hidden supply.
+    *   _type_ - unsigned int; 1 - public supply; 2 - hidden supply.
     *   _supply_ - unsigned int; Token supply.
     *   _unit_ - unsigned int; Token unit.
 
 Example:
 
 
-    $ curl http://localhost:24250/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"sweep_single","params":{"prefix":"T"}}' -H 'Content-Type: application/json'
+    $ curl http://localhost:24250/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_tokens","params":{"prefix":"T"}}' -H 'Content-Type: application/json'
     {
       "id": "0",
       "jsonrpc": "2.0",
       "result": {
         "tokens": [{
-          "id": "4704081279044288512",
-          "type": "1",
+          "id": 4704081279044288512,
+          "type": 1,
           "supply": 11,
           "unit": 10000000000
         },{
-          "id": "4705223981953712128",
-          "type": "1",
+          "id": 4705223981953712128,
+          "type": 1,
           "supply": 100,
           "unit": 10000000000
         }]
@@ -1403,7 +1404,7 @@ Example (Payment ID is empty, use a random ID):
       "id": "0",
       "jsonrpc": "2.0",
       "result": {
-        "integrated_address": "5F38Rw9HKeaLQGJSPtbYDacR7dz8RBFnsfAKMaMuwUNYX6aQbBcovzDPyrQF9KXF9tVU6Xk3K8no1BywnJX6GvZXCkbHUXdPHyiUeRyokn",
+        "integrated_address": "ctiT6VcH4Djjob3xm7y16o6xKFAb2UYkU2LgGadosyAHa37GZpKk6hv6YrXenHjPAZEoMCe1ae5KxidqrzQkvEbHL9d6Km6xC7j5JaiEBRvDa",
         "payment_id": "420fa29b2d9a49f5"
       }
     }
@@ -1429,7 +1430,7 @@ Outputs:
 Example:
 
 
-    $ curl http://127.0.0.1:24250/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"split_integrated_address","params":{"integrated_address": "5F38Rw9HKeaLQGJSPtbYDacR7dz8RBFnsfAKMaMuwUNYX6aQbBcovzDPyrQF9KXF9tVU6Xk3K8no1BywnJX6GvZXCkbHUXdPHyiUeRyokn"}}' -H 'Content-Type: application/json'
+    $ curl http://127.0.0.1:24250/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"split_integrated_address","params":{"integrated_address": "ctiT6VcH4Djjob3xm7y16o6xKFAb2UYkU2LgGadosyAHa37GZpKk6hv6YrXenHjPAZEoMCe1ae5KxidqrzQkvEbHL9d6Km6xC7j5JaiEBRvDa"}}' -H 'Content-Type: application/json'
     {
       "id": "0",
       "jsonrpc": "2.0",
@@ -1963,7 +1964,7 @@ Example:
       "jsonrpc": "2.0",
       "result": {
         "in": [{
-          "address": "77Vx9cs1VPicFndSVgYUvTdLCJEZw9h81hXLMYsjBCXSJfUehLa9TDW3Ffh45SQa7xb6dUs18mpNxfUhQGqfwXPSMrvKhVp",
+          "address": "ctsT6VcH4Djjob3xm7y16o6xKFAb2UYkU2LgGadosyAHa37GZpKk6hv6YrXenHjPAZEoMCe1ae5KxidqrzQkvEbHL9d6Km6xC7",
           "amount": 200000000000,
           "confirmations": 1,
           "double_spend_seen": false,
@@ -2036,7 +2037,7 @@ Example:
             "address": "ctsT6VcH4Djjob3xm7y16o6xKFAb2UYkU2LgGadosyAHa37GZpKk6hv6YrXenHjPAZEoMCe1ae5KxidqrzQkvEbHL9d6Km6xC7",
             "amount": 100000000000
           },{
-            "address": "77Vx9cs1VPicFndSVgYUvTdLCJEZw9h81hXLMYsjBCXSJfUehLa9TDW3Ffh45SQa7xb6dUs18mpNxfUhQGqfwXPSMrvKhVp",
+            "address": "ctiT6VcH4Djjob3xm7y16o6xKFAb2UYkU2LgGadosyAHa37GZpKk6hv6YrXenHjPAZEoMCe1ae5KxidqrzQkvEbHL9d6Km6xC7j5JaiEBRvDa",
             "amount": 200000000000
           }],
           "double_spend_seen": false,
@@ -2341,12 +2342,12 @@ Example:
       "jsonrpc": "2.0",
       "result": {
         "entries": [{
-          "address": "77Vx9cs1VPicFndSVgYUvTdLCJEZw9h81hXLMYsjBCXSJfUehLa9TDW3Ffh45SQa7xb6dUs18mpNxfUhQGqfwXPSMrvKhVp",
+          "address": "ctsT6VcH4Djjob3xm7y16o6xKFAb2UYkU2LgGadosyAHa37GZpKk6hv6YrXenHjPAZEoMCe1ae5KxidqrzQkvEbHL9d6Km6xC7",
           "description": "Second account",
           "index": 0,
           "payment_id": "0000000000000000000000000000000000000000000000000000000000000000"
         },{
-          "address": "78P16M3XmFRGcWFCcsgt1WcTntA1jzcq31seQX1Eg92j8VQ99NPivmdKam4J5CKNAD7KuNWcq5xUPgoWczChzdba5WLwQ4j",
+          "address": "ctiT6VcH4Djjob3xm7y16o6xKFAb2UYkU2LgGadosyAHa37GZpKk6hv6YrXenHjPAZEoMCe1ae5KxidqrzQkvEbHL9d6Km6xC7j5JaiEBRvDa",
           "description": "Third account",
           "index": 1,
           "payment_id": "0000000000000000000000000000000000000000000000000000000000000000"
@@ -2375,7 +2376,7 @@ Outputs:
 Example:
 
 
-    $ curl http://localhost:24250/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"add_address_book","params":{"address":"78P16M3XmFRGcWFCcsgt1WcTntA1jzcq31seQX1Eg92j8VQ99NPivmdKam4J5CKNAD7KuNWcq5xUPgoWczChzdba5WLwQ4j","description":"Third account"}}' -H 'Content-Type: application/json'
+    $ curl http://localhost:24250/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"add_address_book","params":{"address":"ctiT6VcH4Djjob3xm7y16o6xKFAb2UYkU2LgGadosyAHa37GZpKk6hv6YrXenHjPAZEoMCe1ae5KxidqrzQkvEbHL9d6Km6xC7j5JaiEBRvDa","description":"Third account"}}' -H 'Content-Type: application/json'
     {
       "id": "0",
       "jsonrpc": "2.0",
@@ -2692,7 +2693,7 @@ Example for 2/2 Multisig Wallet:
       "id": "0",
       "jsonrpc": "2.0",
       "result": {
-        "address": "55SoZTKH7D39drxfgT62k8T4adVFjmDLUXnbzEKYf1MoYwnmTNKKaqGfxm4sqeKCHXQ5up7PVxrkoeRzXu83d8xYURouMod",
+        "address": "cut55SoZTKH7D39drxfgT62k8T4adVFjmDLUXnbzEKYf1MoYwnmTNKKaqGfxm4sqeKCHXQ5up7PVxrkoeRzXu83d8xYURouMod",
         "multisig_info": ""
       }
     }
@@ -2707,7 +2708,7 @@ Example for 2/3 Multisig Wallet:
       "id": "0",
       "jsonrpc": "2.0",
       "result": {
-        "address": "51sLpF8fWaK1111111111111111111111111111111111ABVbHNf1JFWJyFp5YZgZRQ44RiviJi1sPHgLVMbckRsDkTRgKS",
+        "address": "cut51sLpF8fWaK1111111111111111111111111111111111ABVbHNf1JFWJyFp5YZgZRQ44RiviJi1sPHgLVMbckRsDkTRgKS",
         "multisig_info": "MultisigxV18jCaYAQQvzCMUJaAWMCaAbAoHpAD6WPmYDmLtBtazD654E8RWkLaGRf29fJ3stU471MELKxwufNYeigP7LoE4tn2Sscwn5g7PyCfcBc1V4ffRHY3Kxqq6VocSCUTncpVeUskaDKuTAWtdB9VTBGW7iG1cd7Zm1dYgur3CiemkGjRUAj9bL3xTEuyaKGYSDhtpFZFp99HQX57EawhiRHk3qq4hjWX"
       }
     }
@@ -2791,7 +2792,7 @@ Example:
       "id": "0",
       "jsonrpc": "2.0",
       "result": {
-        "address": "5B9gZUTDuHTcGGuY3nL3t8K2tDnEHeRVHSBQgLZUTQxtFYVLnho5JJjWJyFp5YZgZRQ44RiviJi1sPHgLVMbckRsDqDx1gV"
+        "address": "cut5B9gZUTDuHTcGGuY3nL3t8K2tDnEHeRVHSBQgLZUTQxtFYVLnho5JJjWJyFp5YZgZRQ44RiviJi1sPHgLVMbckRsDqDx1gV"
       }
     }
 
@@ -2821,7 +2822,7 @@ Example:
       "id": "0",
       "jsonrpc": "2.0",
       "result": {
-        "address": "5B9gZUTDuHTcGGuY3nL3t8K2tDnEHeRVHSBQgLZUTQxtFYVLnho5JJjWJyFp5YZgZRQ44RiviJi1sPHgLVMbckRsDqDx1gV",
+        "address": "cut5B9gZUTDuHTcGGuY3nL3t8K2tDnEHeRVHSBQgLZUTQxtFYVLnho5JJjWJyFp5YZgZRQ44RiviJi1sPHgLVMbckRsDqDx1gV",
         "multisig_info": "MultisigxV1JNC6Ja2oBt5Sqea9LN2YEF7WYZCpHqr2EKvPG89Trf3X4E8RWkLaGRf29fJ3stU471MELKxwufNYeigP7LoE4tn2McPr4SbL9q15xNvZT5uwC9YRr7UwjXqSZHmTWN9PBuZEKVAQ4HPPyQciSCdNjgwsuFRBzrskMdMUwNMgKst1debYfm37i6PSzDoS2tk4kYTYj83kkAdR7kdshet1axQPd6HQ"
       }
     }

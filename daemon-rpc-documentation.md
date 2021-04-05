@@ -283,7 +283,7 @@ Outputs:
 
 In this example, a block blob which has not been mined is submitted:
 
-    $ curl http://127.0.0.1:24248/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"submit_block","params":["0707e6bdfedc053771512f1bc27c62731ae9e8f2443db64ce742f4e57f5cf8d393de28551e441a0000000002fb830a01ffbf830a018cfe88bee283060274c0aae2ef5730e680308d9c00b6da59187ad0352efe3c71d36eeeb28782f29f2501bd56b952c3ddc3e350c2631d3a5086cac172c56893831228b17de296ff4669de020200000000", "0707e6bdfedc053771512f1bc27c62731ae9e8f2443db64ce742f4e57f5cf8d393de28551e441a0000000002fb830a01ffbf830a018cfe88bee283060274c0aae2ef5730e680308d9c00b6da59187ad0352efe3c71d36eeeb28782f29f2501bd56b952c3ddc3e350c2631d3a5086cac172c56893831228b17de296ff4669de020200000000"]' -H 'Content-Type: application/json'
+    $ curl http://127.0.0.1:24248/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"submit_block","params":["block_blob":"0707e6bdfedc053771512f1bc27c62731ae9e8f2443db64ce742f4e57f5cf8d393de28551e441a0000000002fb830a01ffbf830a018cfe88bee283060274c0aae2ef5730e680308d9c00b6da59187ad0352efe3c71d36eeeb28782f29f2501bd56b952c3ddc3e350c2631d3a5086cac172c56893831228b17de296ff4669de020200000000", "pos_tx_blob":"0707e6bdfedc053771512f1bc27c62731ae9e8f2443db64ce742f4e57f5cf8d393de28551e441a0000000002fb830a01ffbf830a018cfe88bee283060274c0aae2ef5730e680308d9c00b6da59187ad0352efe3c71d36eeeb28782f29f2501bd56b952c3ddc3e350c2631d3a5086cac172c56893831228b17de296ff4669de020200000000"]' -H 'Content-Type: application/json'
 
     {
       "id": "0",
@@ -1522,7 +1522,7 @@ Outputs:
 
 *   _tokens_ - array of token_info; Information for each token in the DB.
     *   _id_ - unsigned int; Token ID.
-    *   _type_ - string; "1" - public supply; "2" - hidden supply.
+    *   _type_ - unsigned int; 1 - public supply; 2 - hidden supply.
     *   _supply_ - unsigned int; Token supply.
     *   _unit_ - unsigned int; Token unit.
 
