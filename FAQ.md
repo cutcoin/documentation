@@ -64,7 +64,7 @@ print_cn
 
 in the terminal and you will get the network stats per connected peer. 'Recv/Sent' column shows the traffic.
 
-After that, use any online [Network speed measurement tool] (https://www.speedtest.net) to find the entire connection throughout. If it is much bigger than the cutcoin daemon traffic, it is likely that your connection speed is enough for Cutcoin network.
+After that, use any online [Network speed measurement tool](https://www.speedtest.net) to find the entire connection throughout. If it is much bigger than the cutcoin daemon traffic, it is likely that your connection speed is enough for Cutcoin network.
 
 ## Is CUT a PoW or PoS coin? 
 CUTcoin started out as a PoW coin that used CUTcoin's own hashing algorithm. On March 7th, 2019 at block 52 000, CUTcoin switched to PoS.
