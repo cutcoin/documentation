@@ -17,6 +17,55 @@ First off, CUT makes use of Proof of Stake instead of Proof of Work consensus, a
 CUT is currently listed on [STEX](https://app.stex.com/en/trade/pair/BTC/CUT/1D), [CREX24](https://crex24.com/exchange/CUT-BTC), [P2PB2B](https://p2pb2b.io/trade/CUT_BTC) and [Tradeogre](https://tradeogre.com/exchange/BTC-CUT).
 
 # Technical questions
+
+## Network settings for Cutcoin
+
+Cutcoin nodes establish a distributed P2P single layer network and rely on the standard TCP/IP protocols. Most often, you don't need to make any special settings in your network environment. 
+
+In some cases network providers or OS may partially block network traffic and you need to dive into technical details. Cutcoin daemon is the crucial part of the network infrastructure. It does multiple exchanges with other daemons when sharing the current blockchain state, pool of the new transactions, data about nodes in the network etc. You can check several things that may go wrong.
+
+1. Seed nodes. Our team supports a bunch of seed nodes which help to explore the network as the daemon is started.
+
+The seed nodes for testnet are
+
+```
+94.130.65.238:25257
+23.111.23.171:25257
+```
+
+and for mainnet
+
+```
+94.130.65.238:24247
+23.111.23.171:24247
+173.0.156.248:24247
+103.23.208.219:24247
+```
+
+We use 'ip_address':'port' format to specify them.
+
+[Ping](https://en.wikipedia.org/wiki/Ping_(networking_utility)) these nodes to check that your node can reach them: 
+
+```
+ping ip_address
+```
+
+If the nodes are unreachable, it is likely that your daemon won't be able to establish the connection with the Cutcoin network.
+
+You may also need to open the ports (25257 for testnet and 24247 for mainnet) or ask the provider to do it.
+
+2.Network speed. 
+
+When dutcoin daemon is running, type
+
+```
+print_cn
+```
+
+in the terminal and you will get the network stats per connected peer. 'Recv/Sent' column shows the traffic.
+
+After that, use any online [Network speed measurement tool] (https://www.speedtest.net) to find the entire connection throughout. If it is much bigger than the cutcoin daemon traffic, it is likely that your connection speed is enough for Cutcoin network.
+
 ## Is CUT a PoW or PoS coin? 
 CUTcoin started out as a PoW coin that used CUTcoin's own hashing algorithm. On March 7th, 2019 at block 52 000, CUTcoin switched to PoS.
 
