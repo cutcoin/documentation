@@ -2,7 +2,7 @@
 
 ### Introduction
 
-Since Cutcoin 12 fork we have revolutionary opportunities for private Decentralized EXchange of assets (DEX) with the help of Cutcoin Liquidity pools. New token types are also available for different business cases. In the first part of the paper we investigate Cutcoin CryptoNote Tokens (CNT1), old and upcoming features, and look at DEX in detail in the next section.
+Since Cutcoin 12 fork we have revolutionary opportunities for private Decentralized EXchange of assets (DEX) with the help of Cutcoin Liquidity pools. For different business cases new types of tokens are available. In the first part of the paper we investigate Cutcoin CryptoNote Tokens (CNT1), old and upcoming features, and look at DEX in detail in the next section.
 
 ### Getting the Right Tools
 
@@ -133,7 +133,9 @@ i.e. user receives a fraction of the all funds in the pool equal to his share of
 
 Working with a pool from a trader's point of view looks attractive. Purchase and sale operations are performed in respect to the first token in the trading pair. The second token is an underlying currency. In other words, the command 'buy T1/T2 50' means that you buy 50 tokens T1 using the current exchange rate and pay tokens T2 for it. Similarly, 'sell T1/T2 10' means selling 10 tokens T1 for T2. The required amount of the second token in the pair is evaluated automatically. Pool interest is also accounted automatically. When buying, pool interest is added to the required amount of the funds for token T2, and when selling, it is subtracted from the earnings.
 
-All discussed operations technically were implemented as ordinary transactions in Cutcoin blockchain. There is an important restriction recently that you need to know about before starting working with liquidity pools. A single block can contain only one token transaction (any of 'create token', 'create lp token', 'mint token supply') or lp transaction (any of 'create liquidity pool', 'add liquidity', 'take liquidity', 'buy', 'sell'). It is related to stages we need to pass when implementing DEX in Cutcoin, but in the future we plan to relax this restriction.
+Cutcoin DEX supports cross-pool operations. It means that a user can exchange his liquidity using several liquidity pools 'in row'. User's wallet estimates the most profitable way of exchange and put all hops into a single transaction. Note that for this operation each pool adds its own fee.
+
+All discussed operations, from the technical point of view, were implemented as ordinary transactions in Cutcoin blockchain. There is an important restriction recently that you need to know about before starting working with liquidity pools. A single block can contain only one token transaction (any of 'create token', 'create lp token', 'mint token supply') or lp transaction (any of 'create liquidity pool', 'add liquidity', 'take liquidity', 'buy', 'sell'). It is related to stages we need to pass when implementing DEX in Cutcoin, but in the future we plan to relax this restriction.
 
 ##### Example.
 
@@ -203,18 +205,28 @@ We believe that a new CryptoNote based DEX marketplace should be highly demanded
 
 `sell` Sell the specified amount of the first token in the liquidity pool pair. Example: as the result of 'buy T1/cutcoin 1' command, you send 1 T1 token from 'T1/cutcoin' pool using the current ratio.
 
+`exchange_rate` Print effective exchange rate for the pair of tokens, the required liquidity pools to make exchange, and the final amount of tokens that you receive. First argument is the token to sell, second argument is the token to buy, third argument is optional amount of the first token.
+
+`cross_buy` Buy the specified amount of the first token in the pair using one or several liquidity pools. Example: as the result of 'buy T1/cutcoin 1' command, you receive 1 T1 token from 'T1/cutcoin' pool using the current ratio..
+
+`cross_sell` Sell the specified amount of the first token in the pair using one or several liquidity pools. Example: as the result of 'buy T1/cutcoin 1' command, you send 1 T1 token from 'T1/cutcoin' pool using the current ratio.
+
 ### Appendix B. Table of the Operation Costs
 
-| Operation name                                 |    Cost                  |
-|------------------------------------------------|--------------------------|
-| Create token                                   |  100 Cut                 |
-| Create LP token                                |  100 Cut                 |
-| Mint supply for Mintable token                 |  100 Cut                 |
-| Create Liquidity Pool                          |  100 Cut                 |
-| Add liquidity to Liquidity Pool                |   no fee                 |
-| Take liquidity from Liquidity Pool             |   no fee                 |
-| Buy                                            |   0.3% of the tx amount  |
-| Sell                                           |   0.3% of the tx amount  |
+| Operation name                                 |    Cost                     |
+|------------------------------------------------|-----------------------------|
+| Create token                                   |  100 Cut                    |
+| Create LP token                                |  100 Cut                    |
+| Mint supply for Mintable token                 |  100 Cut                    |
+| Create Liquidity Pool                          |  100 Cut                    |
+| Add liquidity to Liquidity Pool                |   no fee                    |
+| Take liquidity from Liquidity Pool             |   no fee                    |
+| Buy                                            |   0.3% of the tx amount     |
+| Sell                                           |   0.3% of the tx amount     |
+| Cross Pool Buy                                 |   each pool in the chain    |
+|                                                | takes 0.3% of the tx amount |
+| Cross Pool Sell                                |   each pool in the chain    |
+|                                                | takes 0.3% of the tx amount |
 
 
 ### Appendix C. Token / DEX Commands and Privacy
@@ -230,4 +242,6 @@ We believe that a new CryptoNote based DEX marketplace should be highly demanded
 | Add liquidity to Liquidity Pool                       |  Disclose participating unspent output amounts                                      |
 | Take liquidity from Liquidity Pool                    |  Disclose participating unspent output amounts                                      |
 | Buy                                                   |  Disclose participating unspent output amounts                                      |
-| Sell                                                  |  Disclose participating unspent output amounts                                      |
+| Sell                                                  |  Disclose participating unspent output amounts    
+| Cross Pool Buy                                        |  Disclose participating unspent output amounts                                      |
+| Cross Pool Sell                                       |  Disclose participating unspent output amounts                                   |
